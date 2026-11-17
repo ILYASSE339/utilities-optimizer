@@ -16,6 +16,8 @@ Finds the least-cost operation of an industrial steam and electricity system
 - The condensing turbine only pays off above **150 €/MWh** (= 30 €/t ÷ 0.2 MWh/t).
   Above that price it covers the remaining 2.8 MW and grid purchase drops to zero.
 
+![Price sweep](docs/price_sweep.png)
+
 ## Roadmap
 
 | Version | Content | Status |
