@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 580" font-family="Helvetica, Arial, sans-serif" font-size="14">
+  <defs>
+    <marker id="aHP" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#B23A3A"/></marker>
+    <marker id="aLP" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2F6DB5"/></marker>
+    <marker id="aEL" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#D98E04"/></marker>
+  </defs>
+  <rect width="1000" height="580" fill="#ffffff"/>
+  <text x="500" y="32" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">Utilities optimizer v0 — steam and power system</text>
+
+  <!-- Boilers -->
+  <rect x="40" y="70" width="130" height="44" rx="6" fill="#F6E3E3" stroke="#B23A3A" stroke-width="1.5"/>
+  <text x="105" y="90" text-anchor="middle" font-weight="bold">Boiler 1</text>
+  <text x="105" y="106" text-anchor="middle" font-size="12">B1 ≤ 50 t/h · 25 €/t</text>
+  <rect x="40" y="150" width="130" height="44" rx="6" fill="#F6E3E3" stroke="#B23A3A" stroke-width="1.5"/>
+  <text x="105" y="170" text-anchor="middle" font-weight="bold">Boiler 2</text>
+  <text x="105" y="186" text-anchor="middle" font-size="12">B2 ≤ 40 t/h · 30 €/t</text>
+  <polyline points="170,92 195,92 195,128 218,128" fill="none" stroke="#B23A3A" stroke-width="2" marker-end="url(#aHP)"/>
+  <polyline points="170,172 195,172 195,128" fill="none" stroke="#B23A3A" stroke-width="2"/>
+
+  <!-- HP header -->
+  <rect x="220" y="120" width="560" height="16" rx="3" fill="#B23A3A"/>
+  <text x="790" y="133" fill="#B23A3A" font-weight="bold">HP header</text>
+
+  <!-- HP process demand -->
+  <line x1="280" y1="136" x2="280" y2="198" stroke="#B23A3A" stroke-width="2" marker-end="url(#aHP)"/>
+  <rect x="220" y="200" width="120" height="44" rx="6" fill="#fff" stroke="#B23A3A" stroke-width="1.5"/>
+  <text x="280" y="220" text-anchor="middle" font-weight="bold">HP process</text>
+  <text x="280" y="236" text-anchor="middle" font-size="12">D_hp = 20 t/h</text>
+
+  <!-- Back-pressure turbine -->
+  <line x1="430" y1="136" x2="430" y2="193" stroke="#B23A3A" stroke-width="2" marker-end="url(#aHP)"/>
+  <text x="438" y="170" fill="#B23A3A">F_cp</text>
+  <polygon points="415,195 445,195 460,265 400,265" fill="#EEE" stroke="#444" stroke-width="1.5"/>
+  <text x="470" y="225" font-size="12">Back-pressure</text>
+  <text x="470" y="240" font-size="12">turbine ≤ 40 t/h</text>
+  <line x1="430" y1="265" x2="430" y2="357" stroke="#2F6DB5" stroke-width="2" marker-end="url(#aLP)"/>
+
+  <!-- Let-down valve -->
+  <line x1="590" y1="136" x2="590" y2="215" stroke="#B23A3A" stroke-width="2"/>
+  <text x="598" y="170" fill="#B23A3A">F_v</text>
+  <polygon points="575,215 605,215 590,230" fill="#EEE" stroke="#444" stroke-width="1.5"/>
+  <polygon points="575,245 605,245 590,230" fill="#EEE" stroke="#444" stroke-width="1.5"/>
+  <text x="612" y="235" font-size="12">Let-down valve</text>
+  <line x1="590" y1="245" x2="590" y2="357" stroke="#2F6DB5" stroke-width="2" marker-end="url(#aLP)"/>
+
+  <!-- Condensing turbine -->
+  <line x1="740" y1="136" x2="740" y2="193" stroke="#B23A3A" stroke-width="2" marker-end="url(#aHP)"/>
+  <text x="748" y="170" fill="#B23A3A">F_cd</text>
+  <polygon points="725,195 755,195 770,265 710,265" fill="#EEE" stroke="#444" stroke-width="1.5"/>
+  <text x="780" y="225" font-size="12">Condensing</text>
+  <text x="780" y="240" font-size="12">turbine ≤ 30 t/h</text>
+  <line x1="740" y1="265" x2="740" y2="298" stroke="#2F6DB5" stroke-width="2" marker-end="url(#aLP)"/>
+  <rect x="690" y="300" width="100" height="36" rx="6" fill="#E6EEF8" stroke="#2F6DB5" stroke-width="1.5"/>
+  <text x="740" y="323" text-anchor="middle">Condenser</text>
+
+  <!-- LP header -->
+  <rect x="395" y="360" width="250" height="16" rx="3" fill="#2F6DB5"/>
+  <text x="655" y="373" fill="#2F6DB5" font-weight="bold" font-size="13">LP header</text>
+  <line x1="520" y1="376" x2="520" y2="403" stroke="#2F6DB5" stroke-width="2" marker-end="url(#aLP)"/>
+  <rect x="455" y="405" width="130" height="44" rx="6" fill="#fff" stroke="#2F6DB5" stroke-width="1.5"/>
+  <text x="520" y="425" text-anchor="middle" font-weight="bold">LP process</text>
+  <text x="520" y="441" text-anchor="middle" font-size="12">D_lp = 40 t/h</text>
+
+  <!-- Electricity -->
+  <polyline points="407,230 372,230 372,488" fill="none" stroke="#D98E04" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#aEL)"/>
+  <text x="290" y="300" fill="#D98E04" font-size="12">e_cp·F_cp</text>
+  <text x="290" y="315" fill="#D98E04" font-size="12">(0.08 MWh/t)</text>
+  <polyline points="768,258 900,258 900,488" fill="none" stroke="#D98E04" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#aEL)"/>
+  <text x="908" y="300" fill="#D98E04" font-size="12">e_cd·F_cd</text>
+  <text x="908" y="315" fill="#D98E04" font-size="12">(0.20 MWh/t)</text>
+  <rect x="350" y="490" width="580" height="8" rx="2" fill="#D98E04"/>
+  <text x="250" y="498" fill="#D98E04" font-weight="bold" font-size="13">Electrical bus</text>
+  <line x1="560" y1="540" x2="560" y2="502" stroke="#D98E04" stroke-width="2" marker-end="url(#aEL)"/>
+  <rect x="470" y="540" width="180" height="34" rx="6" fill="#FDF1DC" stroke="#D98E04" stroke-width="1.5"/>
+  <text x="560" y="562" text-anchor="middle" font-size="13">Grid · P_buy · 90 €/MWh</text>
+  <line x1="780" y1="498" x2="780" y2="536" stroke="#D98E04" stroke-width="2" marker-end="url(#aEL)"/>
+  <rect x="690" y="540" width="180" height="34" rx="6" fill="#fff" stroke="#D98E04" stroke-width="1.5"/>
+  <text x="780" y="562" text-anchor="middle" font-size="13">Site load · D_el = 6 MW</text>
+</svg>
