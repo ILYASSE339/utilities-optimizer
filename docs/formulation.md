@@ -95,18 +95,51 @@ $$B_1, B_2, F_{cp}, F_v, F_{cd}, P_{buy} \ge 0$$
   (boiler 1 is already saturated), so the condensing turbine becomes
   profitable when e_cd · p > c_2, i.e. **p > 30 / 0.2 = 150 €/MWh**.
 
-Expected solution at p = 90 €/MWh:
+## Results
 
-| Variable | Predicted | Solver |
+Solver: HiGHS via Pyomo (`appsi_highs`).
+
+| Variable | p = 90 €/MWh | p = 160 €/MWh |
 |---|---|---|
-| F_cp | | |
-| F_v | | |
-| F_cd | 0 | |
-| B1 | | |
-| B2 | | |
-| P_buy | | |
-| Z (€/h) | | |
+| B1 (t/h) | 50 (saturated) | 50 (saturated) |
+| B2 (t/h) | 10 (marginal) | 24 (marginal) |
+| F_cp (t/h) | 40 (full) | 40 (full) |
+| F_v (t/h) | 0 | 0 |
+| F_cd (t/h) | 0 | 14 |
+| P_buy (MW) | 2.8 | 0 |
+| Z (€/h) | 1 802 | 1 970 |
 
-## Result and interpretation
+Hand check at p = 90 €/MWh:
 
-_To be completed after running `solve()`._
+- HP: 50 + 10 = 20 + 40 + 0 + 0 = 60 t/h
+- LP: 40 + 0 = 40 t/h
+- Electricity: 0.08 × 40 + 0.20 × 0 + 2.8 = 6 MW
+- Cost: 25 × 50 + 30 × 10 + 90 × 2.8 = 1 802 €/h
+
+The prediction is confirmed.
+
+## Interpretation
+
+- **Back-pressure turbine always at full load, let-down valve closed.** LP steam
+  has to be expanded anyway; through the turbine it yields 0.08 MWh/t for free,
+  through the valve it yields nothing. A let-down valve in permanent use on a real
+  site is a red flag: it is free electricity thrown away.
+- **Boiler 2 sets the marginal cost of HP steam (30 €/t).** Boiler 1, the cheaper
+  one, is saturated, so any extra tonne comes from boiler 2.
+- **Condensing turbine: on/off decision driven by the grid price.** It runs only
+  when e_cd · p > c_2, i.e. above **150 €/MWh**. Above that price it covers exactly
+  the remaining 2.8 MW (2.8 / 0.2 = 14 t/h): with no export allowed, producing more
+  has no value.
+- **Message for the energy manager:** below 150 €/MWh, buy the missing power from
+  the grid; above it, start the condensing turbine and stop buying.
+
+## Tests
+
+`tests/test_balances.py` checks the physics (HP, LP and electricity balances,
+capacities) and the economics (reference cost, valve closed, condensing turbine
+off at 140 €/MWh and on at 160 €/MWh). Comparisons use a 1e-6 tolerance because
+the solver works in floating point (it returns `-0.0` or `13.999999999999998`).
+
+```bash
+uv run pytest -v
+```
