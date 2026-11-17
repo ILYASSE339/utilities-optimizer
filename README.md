@@ -15,6 +15,9 @@ Finds the least-cost operation of an industrial steam and electricity system
   HP steam at **30 €/t**.
 - The condensing turbine only pays off above **150 €/MWh** (= 30 €/t ÷ 0.2 MWh/t).
   Above that price it covers the remaining 2.8 MW and grid purchase drops to zero.
+- Above 150 €/MWh the site no longer buys power: its cost is **capped at 1 970 €/h**
+  whatever the grid price. The condensing turbine acts as a hedge against price spikes
+  (at 250 €/MWh it saves 280 €/h versus grid purchase only).
 
 ![Price sweep](docs/price_sweep.png)
 
@@ -47,7 +50,8 @@ src/utilities_optimizer/model.py   Pyomo model: build_model(params), solve(param
 tests/test_balances.py             Physical balances and break-even tests
 docs/formulation.md                Mathematical formulation, results, interpretation
 docs/system_v0.svg                 System diagram
-notebooks/                         Price sweep (next)
+notebooks/01_price_sweep.ipynb     Electricity price sensitivity (50–250 €/MWh)
+docs/price_sweep.png               Price sweep chart
 ```
 
 Data are synthetic. No confidential plant data is used.

@@ -1,7 +1,7 @@
 [project]
 name = "utilities-optimizer"
 version = "0.1.0"
-description = "Add your description here"
+description = "Least-cost operation of an industrial steam and power utilities system (Pyomo + HiGHS)"
 readme = "README.md"
 authors = [
     { name = "ILYASSE", email = "ilyasyou03@gmail.com" }
@@ -12,9 +12,6 @@ dependencies = [
     "pandas>=3.1.0",
     "pyomo>=6.10.1",
 ]
-
-[project.scripts]
-utilities-optimizer = "utilities_optimizer:main"
 
 [build-system]
 requires = ["uv_build>=0.12.19,<0.13.0"]
