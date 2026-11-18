@@ -8,6 +8,7 @@ authors = [
 ]
 requires-python = ">=3.12"
 dependencies = [
+    "coolprop>=8.0.0",
     "highspy>=1.15.1",
     "pandas>=3.1.0",
     "pyomo>=6.10.1",
