@@ -101,9 +101,15 @@ downstream: the desuperheating water adds mass.
 1. **MP demand: TG1 or V1?** TG1 first, because it produces electricity from steam that has to be
    expanded anyway; V1 completes when TG1 is saturated.
    *Refinement:* with desuperheating, V1 delivers 1.17 t of MP per t of HP. Delivering 1 t of MP
-   costs 1 t of HP through TG1 but only 0.85 t through V1. TG1 wins when
-   $e_1\,p > c_{marg}\,\big(1 - \tfrac{1}{1+\alpha_1}\big)$, i.e. above about 68 €/MWh with a
-   marginal steam cost of 30 €/t. At lower prices the valve can be cheaper.
+   costs 1 t of HP through TG1 (net cost $c - e_1 p$) but only $1/(1+\alpha_1) = 0.85$ t through V1
+   (cost $c/(1+\alpha_1)$). TG1 wins when
+
+   $$p > p^* = \frac{c}{e_1}\cdot\frac{\alpha_1}{1+\alpha_1}$$
+
+   Left side: value of the power produced by TG1. Right side: value of the HP steam saved by the
+   valve (0.146 t replaced by water). With the default data, $p^* \approx 56$ €/MWh if B1 is the
+   marginal boiler (24.6 €/t) and $\approx 72$ €/MWh if B2 is (32 €/t).
+   **Below the threshold (cheap electricity) the valve is cheaper; above it, TG1 wins.**
 2. **When is the BP vent used?** When there is excess BP steam. Two cases:
    - *forced excess* — non-dispatchable steam (waste heat, and boiler minimum loads in v1c) exceeds
      what the demands and the condensing turbine can absorb;
