@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" font-family="Helvetica, Arial, sans-serif" font-size="14">
+  <defs>
+    <marker id="aHP" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#B23A3A"/></marker>
+    <marker id="aMP" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7A4FB5"/></marker>
+    <marker id="aLP" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2F6DB5"/></marker>
+    <marker id="aEL" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#D98E04"/></marker>
+    <marker id="aW" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3AA7A0"/></marker>
+  </defs>
+  <rect width="1200" height="830" fill="#ffffff"/>
+  <text x="600" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">Utilities optimizer v1a — three-header steam and power system</text>
+
+  <!-- Sources -->
+  <rect x="190" y="50" width="130" height="44" rx="6" fill="#F6E3E3" stroke="#B23A3A" stroke-width="1.5"/>
+  <text x="255" y="70" text-anchor="middle" font-weight="bold">Boiler B1</text>
+  <text x="255" y="86" text-anchor="middle" font-size="12">gas · c₁ · B1_max</text>
+  <rect x="370" y="50" width="130" height="44" rx="6" fill="#F6E3E3" stroke="#B23A3A" stroke-width="1.5"/>
+  <text x="435" y="70" text-anchor="middle" font-weight="bold">Boiler B2</text>
+  <text x="435" y="86" text-anchor="middle" font-size="12">fuel oil · c₂ · B2_max</text>
+  <rect x="550" y="50" width="150" height="44" rx="6" fill="#FBEFD9" stroke="#B23A3A" stroke-width="1.5"/>
+  <text x="625" y="70" text-anchor="middle" font-weight="bold">Waste heat (WHR)</text>
+  <text x="625" y="86" text-anchor="middle" font-size="12">fixed F_whr · free</text>
+  <line x1="255" y1="94" x2="255" y2="147" stroke="#B23A3A" stroke-width="2" marker-end="url(#aHP)"/>
+  <line x1="435" y1="94" x2="435" y2="147" stroke="#B23A3A" stroke-width="2" marker-end="url(#aHP)"/>
+  <line x1="625" y1="94" x2="625" y2="147" stroke="#B23A3A" stroke-width="2" marker-end="url(#aHP)"/>
+
+  <!-- HP header -->
+  <rect x="150" y="150" width="850" height="16" rx="3" fill="#B23A3A"/>
+  <text x="140" y="164" text-anchor="end" fill="#B23A3A" font-weight="bold">HP 40 bar</text>
+  <line x1="1000" y1="158" x2="1028" y2="158" stroke="#B23A3A" stroke-width="2" marker-end="url(#aHP)"/>
+  <rect x="1030" y="136" width="130" height="44" rx="6" fill="#fff" stroke="#B23A3A" stroke-width="1.5"/>
+  <text x="1095" y="156" text-anchor="middle" font-weight="bold">HP process</text>
+  <text x="1095" y="172" text-anchor="middle" font-size="12">D_hp</text>
+
+  <!-- TG1 : HP -> MP -->
+  <line x1="300" y1="166" x2="300" y2="223" stroke="#B23A3A" stroke-width="2" marker-end="url(#aHP)"/>
+  <text x="308" y="200" fill="#B23A3A">F_TG1</text>
+  <polygon points="285,225 315,225 330,295 270,295" fill="#EEE" stroke="#444" stroke-width="1.5"/>
+  <text x="340" y="255" font-size="12" font-weight="bold">TG1</text>
+  <text x="340" y="270" font-size="12">back-pressure · e₁</text>
+  <line x1="300" y1="295" x2="300" y2="377" stroke="#7A4FB5" stroke-width="2" marker-end="url(#aMP)"/>
+
+  <!-- V1 + desuperheater : HP -> MP -->
+  <line x1="520" y1="166" x2="520" y2="230" stroke="#B23A3A" stroke-width="2"/>
+  <text x="528" y="200" fill="#B23A3A">F_V1</text>
+  <polygon points="505,230 535,230 520,245" fill="#EEE" stroke="#444" stroke-width="1.5"/>
+  <polygon points="505,260 535,260 520,245" fill="#EEE" stroke="#444" stroke-width="1.5"/>
+  <text x="545" y="250" font-size="12" font-weight="bold">V1</text>
+  <line x1="520" y1="260" x2="520" y2="290" stroke="#B23A3A" stroke-width="2"/>
+  <rect x="500" y="290" width="40" height="28" rx="4" fill="#E3F4F3" stroke="#3AA7A0" stroke-width="1.5"/>
+  <text x="520" y="309" text-anchor="middle" font-size="11">DSH</text>
+  <line x1="440" y1="304" x2="498" y2="304" stroke="#3AA7A0" stroke-width="2" marker-end="url(#aW)"/>
+  <text x="395" y="300" font-size="12" fill="#3AA7A0">water α₁·F_V1</text>
+  <line x1="520" y1="318" x2="520" y2="377" stroke="#7A4FB5" stroke-width="2" marker-end="url(#aMP)"/>
+  <text x="528" y="352" font-size="12" fill="#7A4FB5">(1+α₁)·F_V1</text>
+
+  <!-- TG3 : HP -> condenser -->
+  <line x1="900" y1="166" x2="900" y2="223" stroke="#B23A3A" stroke-width="2" marker-end="url(#aHP)"/>
+  <text x="908" y="200" fill="#B23A3A">F_TG3</text>
+  <polygon points="885,225 915,225 930,295 870,295" fill="#EEE" stroke="#444" stroke-width="1.5"/>
+  <text x="940" y="255" font-size="12" font-weight="bold">TG3</text>
+  <text x="940" y="270" font-size="12">condensing · e₃</text>
+  <line x1="900" y1="295" x2="900" y2="338" stroke="#2F6DB5" stroke-width="2" marker-end="url(#aLP)"/>
+  <rect x="850" y="340" width="100" height="36" rx="6" fill="#E6EEF8" stroke="#2F6DB5" stroke-width="1.5"/>
+  <text x="900" y="363" text-anchor="middle">Condenser</text>
+
+  <!-- MP header -->
+  <rect x="150" y="380" width="490" height="16" rx="3" fill="#7A4FB5"/>
+  <text x="140" y="394" text-anchor="end" fill="#7A4FB5" font-weight="bold">MP 12 bar</text>
+  <line x1="640" y1="388" x2="668" y2="388" stroke="#7A4FB5" stroke-width="2" marker-end="url(#aMP)"/>
+  <rect x="670" y="366" width="130" height="44" rx="6" fill="#fff" stroke="#7A4FB5" stroke-width="1.5"/>
+  <text x="735" y="386" text-anchor="middle" font-weight="bold">MP process</text>
+  <text x="735" y="402" text-anchor="middle" font-size="12">D_mp</text>
+
+  <!-- TG2 : MP -> BP -->
+  <line x1="300" y1="396" x2="300" y2="453" stroke="#7A4FB5" stroke-width="2" marker-end="url(#aMP)"/>
+  <text x="308" y="430" fill="#7A4FB5">F_TG2</text>
+  <polygon points="285,455 315,455 330,525 270,525" fill="#EEE" stroke="#444" stroke-width="1.5"/>
+  <text x="340" y="485" font-size="12" font-weight="bold">TG2</text>
+  <text x="340" y="500" font-size="12">back-pressure · e₂</text>
+  <line x1="300" y1="525" x2="300" y2="607" stroke="#2F6DB5" stroke-width="2" marker-end="url(#aLP)"/>
+
+  <!-- V2 + desuperheater : MP -> BP -->
+  <line x1="520" y1="396" x2="520" y2="460" stroke="#7A4FB5" stroke-width="2"/>
+  <text x="528" y="430" fill="#7A4FB5">F_V2</text>
+  <polygon points="505,460 535,460 520,475" fill="#EEE" stroke="#444" stroke-width="1.5"/>
+  <polygon points="505,490 535,490 520,475" fill="#EEE" stroke="#444" stroke-width="1.5"/>
+  <text x="545" y="480" font-size="12" font-weight="bold">V2</text>
+  <line x1="520" y1="490" x2="520" y2="520" stroke="#7A4FB5" stroke-width="2"/>
+  <rect x="500" y="520" width="40" height="28" rx="4" fill="#E3F4F3" stroke="#3AA7A0" stroke-width="1.5"/>
+  <text x="520" y="539" text-anchor="middle" font-size="11">DSH</text>
+  <line x1="440" y1="534" x2="498" y2="534" stroke="#3AA7A0" stroke-width="2" marker-end="url(#aW)"/>
+  <text x="395" y="530" font-size="12" fill="#3AA7A0">water α₂·F_V2</text>
+  <line x1="520" y1="548" x2="520" y2="607" stroke="#2F6DB5" stroke-width="2" marker-end="url(#aLP)"/>
+  <text x="528" y="582" font-size="12" fill="#2F6DB5">(1+α₂)·F_V2</text>
+
+  <!-- BP header -->
+  <rect x="150" y="610" width="490" height="16" rx="3" fill="#2F6DB5"/>
+  <text x="140" y="624" text-anchor="end" fill="#2F6DB5" font-weight="bold">BP 4 bar</text>
+  <line x1="640" y1="618" x2="668" y2="618" stroke="#2F6DB5" stroke-width="2" marker-end="url(#aLP)"/>
+  <rect x="670" y="596" width="130" height="44" rx="6" fill="#fff" stroke="#2F6DB5" stroke-width="1.5"/>
+  <text x="735" y="616" text-anchor="middle" font-weight="bold">BP process</text>
+  <text x="735" y="632" text-anchor="middle" font-size="12">D_bp</text>
+  <line x1="600" y1="626" x2="600" y2="668" stroke="#2F6DB5" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#aLP)"/>
+  <text x="608" y="662" font-size="12" fill="#2F6DB5">F_vent → atmosphere</text>
+
+  <!-- Electricity -->
+  <polyline points="277,260 40,260 40,718" fill="none" stroke="#D98E04" stroke-width="2" stroke-dasharray="6,4"/>
+  <polyline points="277,490 40,490" fill="none" stroke="#D98E04" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="190" y="252" font-size="12" fill="#D98E04">e₁·F_TG1</text>
+  <text x="190" y="482" font-size="12" fill="#D98E04">e₂·F_TG2</text>
+  <polyline points="927,288 1110,288 1110,718" fill="none" stroke="#D98E04" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="1030" y="280" font-size="12" fill="#D98E04">e₃·F_TG3</text>
+  <rect x="30" y="720" width="1090" height="8" rx="2" fill="#D98E04"/>
+  <text x="610" y="712" text-anchor="middle" fill="#D98E04" font-weight="bold" font-size="13">Electrical bus</text>
+  <line x1="420" y1="780" x2="420" y2="732" stroke="#D98E04" stroke-width="2" marker-end="url(#aEL)"/>
+  <rect x="330" y="780" width="180" height="36" rx="6" fill="#FDF1DC" stroke="#D98E04" stroke-width="1.5"/>
+  <text x="420" y="803" text-anchor="middle" font-size="13">Grid · P_buy · price p</text>
+  <line x1="800" y1="728" x2="800" y2="776" stroke="#D98E04" stroke-width="2" marker-end="url(#aEL)"/>
+  <rect x="710" y="780" width="180" height="36" rx="6" fill="#fff" stroke="#D98E04" stroke-width="1.5"/>
+  <text x="800" y="803" text-anchor="middle" font-size="13">Site load · D_el</text>
+</svg>
